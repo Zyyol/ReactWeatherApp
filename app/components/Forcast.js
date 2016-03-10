@@ -23,7 +23,6 @@ function Forcast (props) {
     </div>
     :
     <div className="text-center">
-      {console.log(props.cityData)}
       <h1 style={{fontSize: "80px", color: "#FFF", fontWeight: "150"}}>{props.cityData.city.name}</h1>
       <div style={props.style}>
         {props.cityData.list.map(function (item)
