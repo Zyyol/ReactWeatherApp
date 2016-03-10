@@ -35,8 +35,10 @@ var styles = {
     alignItems: "center",
     justifyContent: "space-between",
     flexWrap: "wrap",
-    margin: "50px auto",
-    maxWidth: "1200px"
+    margin: "15px auto",
+    maxWidth: "1200px",
+    backgroundColor: "#FFF",
+    borderRadius: "80px 80px 80px 80px"
   },
   loading: {
     fontSize: "55px",
@@ -47,7 +49,8 @@ var styles = {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    margin: "35px"
+    margin: "35px",
+    cursor: "pointer"
   }
 };
 
