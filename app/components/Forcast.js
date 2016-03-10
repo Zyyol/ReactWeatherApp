@@ -1,17 +1,17 @@
 var React = require('react');
-var helpers = require('../utils/helpers')
+var getDate = require('../utils/helpers').getDate
+var Loading = require('./Loading');
+var styles = require('../styles');
 
-function puke (obj) {
-  return (
-    <pre>{JSON.stringify(obj, null, ' ')}</pre>
-  )
-};
 
 function DayItem (props) {
   var date = getDate(props.day.dt)
   var icon = props.day.weather[0].icon
   return (
-    a
+    <div style={styles.dayItem}>
+      <img style={{height: 130}} src={'./app/images/' + icon + '.svg'} />
+      <h2>{date}</h2>
+    </div>
   )
 }
 
@@ -19,12 +19,14 @@ function DayItem (props) {
 
 function Forcast (props) {
   return (
-    <div>
+    <div style={styles.home}>
       {
         props.isLoading === true ?
-          <h1 style={{fontSize: "55px", fontWeight: "120"}}> Loading </h1> :
+          <Loading /> :
         <div style={props.style}>
-          {props.city}
+          {props.cityData.list.map(function (item) {
+            return <DayItem key={item.dt} day={item} />
+          })}
         </div>
       }
     </div>

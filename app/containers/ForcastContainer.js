@@ -32,7 +32,8 @@ var ForcastContainer = React.createClass({
       <Forcast
         city={this.props.routeParams.city}
         isLoading={this.state.isLoading}
-        style={styles.forcast} cityData={this.state.cityData}
+        style={styles.forcast}
+        cityData={this.state.cityData}
       />
     )
   }

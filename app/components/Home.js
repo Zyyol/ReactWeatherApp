@@ -8,7 +8,7 @@ var Home = React.createClass({
   render: function () {
     return (
       <div className="container" style={styles.home}>
-        <h1 style={{fontSize: "55px", fontWeight: "120"}}>Enter a city :</h1>
+        <h1 style={{fontSize: "55px", fontWeight: "120", color: "#FFF"}}>Enter a city :)</h1>
         <SearchBoxContainer style={styles.inputHome} marginBtn={{marginTop: "10px"}}/>
       </div>
     )

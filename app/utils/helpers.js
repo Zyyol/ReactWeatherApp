@@ -31,7 +31,9 @@ var helpers = {
   getWeather: function (city) {
     return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='
      + city + '&type=accurate&APPID=' + API_KEY + '&cnt=5')
-      .then(function (data) { return data; })
+      .then(function (data) { return data.data; }).catch(function (err) {
+        console.warn('Error in getWeather', err);
+      })
   },
   convertTemp: function (kelvin) {
     return kelvin - 273.15

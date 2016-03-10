@@ -19,7 +19,7 @@ var styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    maxWidth: "300px"
+    maxWidth: "500px"
   },
   inputHeader: {
     display: "flex",
@@ -32,7 +32,22 @@ var styles = {
   forcast: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between"
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    margin: "50px auto",
+    maxWidth: "1200px"
+  },
+  loading: {
+    fontSize: "55px",
+    fontWeight: "120"
+  },
+  dayItem: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    margin: "35px"
   }
 };
 
