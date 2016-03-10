@@ -36,7 +36,7 @@ var helpers = {
       })
   },
   convertTemp: function (kelvin) {
-    return kelvin - 273.15
+    return parseInt(kelvin - 273.15)
   },
   getDate: function (unixTimestamp) {
     var date = new Date(unixTimestamp * 1000);

@@ -51,6 +51,15 @@ var styles = {
     flexDirection: "column",
     margin: "35px",
     cursor: "pointer"
+  },
+  detail: {
+    fontSize: "20px",
+    maxWidth: "400px",
+    margin: "0px auto",
+    textAlign: "center",
+    backgroundColor: "#FFF",
+    borderRadius: "80px 80px 80px 80px",
+    marginTop: "50px"
   }
 };
 

@@ -27,6 +27,14 @@ var ForcastContainer = React.createClass({
       })
     }.bind(this))
   },
+  handleClickDetail: function (weather) {
+    this.context.router.push({
+      pathname: '/detail/' + this.props.routeParams.city,
+      state: {
+        weather: weather
+      }
+    });
+  },
   render: function () {
     return (
       <Forcast
@@ -34,6 +42,7 @@ var ForcastContainer = React.createClass({
         isLoading={this.state.isLoading}
         style={styles.forcast}
         cityData={this.state.cityData}
+        onClickDetail={this.handleClickDetail}
       />
     )
   }
