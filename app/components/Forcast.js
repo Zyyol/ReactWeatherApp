@@ -2,6 +2,7 @@ var React = require('react');
 var getDate = require('../utils/helpers').getDate
 var Loading = require('./Loading');
 var styles = require('../styles');
+var Link = require('react-router').Link
 
 
 function DayItem (props) {
