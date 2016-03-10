@@ -1,5 +1,5 @@
 var axios = require('axios');
-var key = require('API_KEY')
+var key = require('./API_KEY').API_KEY
 var API_KEY = key
 
 var daysMap = {
