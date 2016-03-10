@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-var API_KEY = "09df6d27d63a0640067ce3fb7f33907d";
+var API_KEY = proccess.env.API_KEY;
 
 var daysMap = {
   "0":"Sunday",

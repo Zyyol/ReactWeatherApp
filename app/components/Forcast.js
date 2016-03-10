@@ -23,7 +23,8 @@ function Forcast (props) {
     </div>
     :
     <div className="text-center">
-      <h1 style={{fontSize: "60px", color: "#FFF", fontWeight: "100"}}>{props.cityData.city.name}</h1>
+      {console.log(props.cityData)}
+      <h1 style={{fontSize: "80px", color: "#FFF", fontWeight: "150"}}>{props.cityData.city.name}</h1>
       <div style={props.style}>
         {props.cityData.list.map(function (item)
           { return <DayItem key={item.dt} day={item} /> })
