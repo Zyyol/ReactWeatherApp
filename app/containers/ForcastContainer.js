@@ -1,6 +1,5 @@
 var React = require('react');
 var Forcast = require('../components/Forcast');
-var styles = require('../styles')
 var getWeather = require('../utils/helpers').getWeather
 
 var ForcastContainer = React.createClass({
@@ -40,7 +39,6 @@ var ForcastContainer = React.createClass({
       <Forcast
         city={this.props.routeParams.city}
         isLoading={this.state.isLoading}
-        style={styles.forcast}
         cityData={this.state.cityData}
         onClickDetail={this.handleClickDetail}
       />

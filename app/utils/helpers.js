@@ -27,6 +27,10 @@ var monthsMap = {
   "11":"Dec"
 };
 
+String.prototype.capitalize = function() {
+    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+};
+
 var helpers = {
   getWeather: function (city) {
     return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='

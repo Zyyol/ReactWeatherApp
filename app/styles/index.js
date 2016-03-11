@@ -55,11 +55,12 @@ var styles = {
   detail: {
     fontSize: "20px",
     maxWidth: "400px",
-    margin: "0px auto",
+    margin: "50px auto",
     textAlign: "center",
     backgroundColor: "#FFF",
     borderRadius: "80px 80px 80px 80px",
-    marginTop: "50px"
+    padding: "15px",
+    paddingBottom: "35px"
   }
 };
 
