@@ -1,8 +1,7 @@
-var axios = require('axios');
-var key = require('./API_KEY').API_KEY
-var API_KEY = key
+import axios from 'axios'
+import { API_KEY } from './API_KEY'
 
-var daysMap = {
+const daysMap = {
   "0":"Sunday",
   "1":"Monday",
   "2":"Tuesday",
@@ -12,7 +11,7 @@ var daysMap = {
   "6":"Saturday"
 };
 
-var monthsMap = {
+const monthsMap = {
   "0":"Jan",
   "1":"Feb",
   "2":"Mar",
@@ -31,23 +30,24 @@ String.prototype.capitalize = function() {
     return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 };
 
-var helpers = {
-  getWeather: function (city) {
-    return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='
-     + city + '&type=accurate&APPID=' + API_KEY + '&cnt=5')
-      .then(function (data) { return data.data; }).catch(function (err) {
-        console.warn('Error in getWeather', err);
-      })
-  },
-  convertTemp: function (kelvin) {
-    return parseInt(kelvin - 273.15)
-  },
-  getDate: function (unixTimestamp) {
-    var date = new Date(unixTimestamp * 1000);
-    var day = daysMap[date.getDay()];
-    var month = monthsMap[date.getMonth()] + ' ' + date.getDate();
-    return day + ', ' + month;
-  }
-};
 
-module.exports = helpers;
+export async function getWeather (city) {
+  try {
+    const data = await axios.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=
+      ${city}&type=accurate&APPID=${API_KEY}&cnt=5`)
+    return data.data
+  } catch (error) {
+    console.warn('Error in getWeather', error)
+  }
+}
+
+export function convertTemp (kelvin) {
+  return parseInt(kelvin - 273.15)
+}
+
+export function getDate (unixTimestamp) {
+  const date = new Date(unixTimestamp * 1000)
+  const day = daysMap[date.getDay()]
+  const month = `${monthsMap[date.getMonth()]} ${date.getDate()}`
+  return `${day}, ${month}`
+}

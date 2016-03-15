@@ -1,35 +1,44 @@
-var React = require('react');
-var SearchBox = require('../components/SearchBox');
-var getWeather = require('../utils/helpers').getWeather
+import React from 'react'
+import { findDOMNode } from 'react-dom'
+import SearchBox from '../components/SearchBox'
+import { getWeather } from '../utils/helpers'
 
-var SearchBoxContainer = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
-  getInitialState: function () {
-    return {
+
+class SearchBoxContainer extends React.Component {
+  constructor () {
+    super()
+    this.state = {
       city: ''
     }
-  },
-  handleUpdateCity: function (e) {
+  }
+  handleUpdateCity (e) {
     var city = e.target.value
     this.setState({
       city: city
     })
-  },
-  handleSubmitCity: function () {
+  }
+  handleSubmitCity (e) {
+    e.preventDefault()
     this.context.router.push('/forcast/' + this.state.city);
-  },
-  render: function () {
+    this.setState({
+      city: ''
+    })
+  }
+  render () {
     return (
       <SearchBox
-        style={this.props.style}
+        styles={this.props.styles}
         marginBtn={this.props.marginBtn}
-        onUpdateCity={this.handleUpdateCity}
-        onSubmitCity={this.handleSubmitCity}
+        city={this.state.city}
+        onUpdateCity={(event) => this.handleUpdateCity(event)}
+        onSubmitCity={(e) => this.handleSubmitCity(e)}
       />
     )
   }
-});
+}
 
-module.exports = SearchBoxContainer;
+SearchBoxContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+export default SearchBoxContainer

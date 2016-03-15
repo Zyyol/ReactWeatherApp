@@ -1,14 +1,13 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
+import React from 'react'
+import { Link } from 'react-router'
 
-function SearchBox (props) {
+function SearchBox ({onUpdateCity, onSubmitCity, city, marginBtn, styles, }) {
   return (
-    <div style={props.style}>
-      <input type="text" className="form-control" onChange={props.onUpdateCity} />
-      <button type="submit" className="btn btn-success" style={props.marginBtn} onClick={props.onSubmitCity}>Search</button>
+    <div style={styles}>
+      <input type="text" className="form-control" onChange={onUpdateCity} value={city} style={{textAlign: 'center'}} />
+      <button type="submit" className="btn btn-success" style={marginBtn} onClick={onSubmitCity}>Search</button>
     </div>
   )
 }
 
-module.exports = SearchBox;
+export default SearchBox

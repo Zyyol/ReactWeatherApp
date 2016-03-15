@@ -1,10 +1,10 @@
-var React = require('react');
-var styles = require('../styles');
-var getDate = require('../utils/helpers').getDate
+import React from 'react'
+import styles from '../styles'
+import { getDate } from '../utils/helpers'
 
 function DayItem (props) {
-  var date = getDate(props.day.dt);
-  var icon = props.day.weather[0].icon;
+  const date = getDate(props.day.dt);
+  const icon = props.day.weather[0].icon;
   return (
     <div style={styles.dayItem} onClick={props.onClick}>
       <img style={{height: 130}} src={'./app/images/' + icon + '.svg'} />
@@ -13,4 +13,4 @@ function DayItem (props) {
   )
 };
 
-module.exports = DayItem;
+export default DayItem

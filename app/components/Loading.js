@@ -1,5 +1,5 @@
-var React = require('react');
-var styles = require('../styles');
+import React from 'react'
+import styles from '../styles'
 
 function Loading () {
   return (
@@ -7,4 +7,4 @@ function Loading () {
   )
 }
 
-module.exports = Loading;
+export default Loading

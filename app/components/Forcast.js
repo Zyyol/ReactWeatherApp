@@ -1,24 +1,24 @@
-var React = require('react');
-var Loading = require('./Loading');
-var styles = require('../styles');
-var DayItem = require('./DayItem');
+import React from 'react'
+import Loading from './Loading'
+import styles from '../styles'
+import DayItem from './DayItem'
 
-function Forcast (props) {
+function Forcast ({isLoading, onClickDetail, cityData}) {
   return (
-    props.isLoading === true ?
+    isLoading === true ?
     <div style={styles.home} className="text-center">
       <Loading />
     </div>
     :
     <div className="text-center">
-      <h1 style={{fontSize: "80px", color: "#FFF", fontWeight: "150"}}>{props.cityData.city.name}</h1>
+      <h1 style={{fontSize: "80px", color: "#FFF", fontWeight: "150"}}>{cityData.city.name}</h1>
       <div style={styles.forcast}>
-        {props.cityData.list.map(function (item)
-          { return <DayItem key={item.dt} day={item} onClick={props.onClickDetail.bind(null, item)} /> })
+        {cityData.list.map(function (item)
+          { return <DayItem key={item.dt} day={item} onClick={onClickDetail.bind(null, item)} /> })
         }
       </div>
     </div>
   )
 }
 
-module.exports = Forcast;
+export default Forcast

@@ -1,49 +1,50 @@
-var React = require('react');
-var Forcast = require('../components/Forcast');
-var getWeather = require('../utils/helpers').getWeather
+import React from 'react'
+import Forcast from '../components/Forcast'
+import { getWeather } from '../utils/helpers'
 
-var ForcastContainer = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
-  getInitialState: function () {
-    return {
+class ForcastContainer extends React.Component {
+  constructor () {
+    super()
+    this.state = {
       isLoading: true,
       cityData: {}
     }
-  },
-  componentDidMount: function () {
+  }
+  componentDidMount () {
     this.makeRequest(this.props.routeParams.city)
-  },
-  componentWillReceiveProps: function (nextProps) {
+  }
+  componentWillReceiveProps (nextProps) {
     this.makeRequest(nextProps.routeParams.city)
-  },
-  makeRequest: function (city) {
-    getWeather(city).then(function (data) {
-      this.setState({
-        isLoading: false,
-        cityData: data
-      })
-    }.bind(this))
-  },
-  handleClickDetail: function (weather) {
+  }
+  async makeRequest (city) {
+    const data = await getWeather(city)
+    this.setState({
+      isLoading: false,
+      cityData: data
+    })
+  }
+  handleClickDetail (weather) {
     this.context.router.push({
       pathname: '/detail/' + this.props.routeParams.city,
       state: {
         weather: weather
       }
     });
-  },
-  render: function () {
+  }
+  render () {
     return (
       <Forcast
         city={this.props.routeParams.city}
         isLoading={this.state.isLoading}
         cityData={this.state.cityData}
-        onClickDetail={this.handleClickDetail}
+        onClickDetail={(weather) => this.handleClickDetail(weather)}
       />
     )
   }
-});
+}
 
-module.exports = ForcastContainer;
+ForcastContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+export default ForcastContainer;
