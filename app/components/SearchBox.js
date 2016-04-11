@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-function SearchBox ({onUpdateCity, onSubmitCity, city, marginBtn, styles, }) {
+function SearchBox ({onUpdateCity, onSubmitCity, city, marginBtn, styles}) {
   return (
     <div style={styles}>
       <input type="text" className="form-control" onChange={onUpdateCity} value={city} style={{textAlign: 'center'}} />
